@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_partner_form_dm_enrichment" model="ir.ui.view">
+    <field name="name">res.partner.form.dm.enrichment</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <group string="Firma">
+          <field name="x_pravni_forma"/>
+          <field name="x_datum_vzniku"/>
+          <field name="x_datum_zapisu_or"/>
+          <field name="x_rok_zalozeni" readonly="1"/>
+          <field name="x_validni_kontakt"/>
+          <field name="x_pravni_stav"/>
+          <field name="x_platce_dph"/>
+          <field name="x_pocet_zamestnancu"/>
+        </group>
+        <group string="Web a online">
+          <field name="x_web_existuje"/>
+          <field name="website"/>
+          <field name="x_kvalita_webu"/>
+        </group>
+        <group string="Kontakty firmy">
+          <field name="email"/>
+          <field name="x_datova_schranka"/>
+          <field name="x_zdroj_kontaktu"/>
+          <field name="x_odkaz_inzerat"/>
+        </group>
+        <group string="Jednatel">
+          <field name="x_jednatel_name"/>
+          <field name="x_phone_ceo"/>
+          <field name="x_email_ceo"/>
+          <field name="x_datum_narozeni"/>
+          <field name="x_vek" readonly="1"/>
+          <field name="x_vek_kategorie"/>
+          <field name="x_statni_prislusnost"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="view_partner_tree_dm_enrichment" model="ir.ui.view">
+    <field name="name">res.partner.tree.dm.enrichment</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//tree/field[@name='name']" position="after">
+        <field name="x_validni_kontakt"/>
+        <field name="x_pravni_stav"/>
+        <field name="x_kvalita_webu"/>
+        <field name="x_pocet_zamestnancu"/>
+        <field name="x_rok_zalozeni"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>
